@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://www.itl.cat/pngfile/big/39-399672_high-quality-airport-wallpaper-airport-wallpaper-night.jpg);
+}
+
+i.fas {
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  margin-right: -26px;
+  margin-top: 22px;
+  position: relative;
+  left: 15px;
+  z-index: 1;
+  float: left;
+  font-size: 22px;
+  color: #96989a;
+}
+
+.flights {
+  display: flex;
+  flex-direction: column;
+  width: 37%;
+
+  &-title {
+    color: #fff;
+    font-family: "Lato", sans-serif;
+  }
+
+  &__search-field {
+    padding: 0 50px;
+    width: 70%;
+    height: 70px;
+    border: none;
+
+    &::placeholder {
+      font-size: 18px;
+    }
+  }
+
+  &__search-btn {
+    width: 30%;
+    height: 70px;
+    background-color: #53b5e9;
+    color: #fff;
+    border: none;
+    font-weight: 700;
+    border-radius: 0 70px 0 0;
+    transition: 0.4s;
+
+    &:hover {
+      transition: 0.4s;
+      border-radius: 0 35px 0 0;
+    }
+  }
+
+  &-btns {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-btn {
+    width: 230px;
+    height: 50px;
+    background: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: 1.5s;
+    font-weight: 500;
+    color: #53b5e9;
+
+    &:hover {
+      transition: 0.4s;
+      background-color: #53b5e9;
+      color: #fff;
+    }
+
+    &_departures {
+      border-top-right-radius: 80px;
+
+      &:hover {
+        border-top-right-radius: 30px;
+      }
+    }
+
+    &_arrivals {
+      border-top-left-radius: 80px;
+
+      &:hover {
+        border-top-left-radius: 30px;
+      }
+    }
+  }
+}
+
+span.fas {
+  margin: 10px;
+}
