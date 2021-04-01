@@ -3,48 +3,45 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Departure from './Departures';
 import Arrivals from './Arrivals';
+import SearchField from './SearchField';
 
 const Airport = () => {
   return (
     <Router>
-      <div className="flights">
-        <h1 className="flights-title">SEARCH FLIGHT</h1>
-        <form>
-          <input
-            className="flights__search-field"
-            type="text"
-            placeholder="Airline, destination or flight"
-          />
-          <i className="fas fa-search"></i>
-          <button className="flights__search-btn">SEARCH</button>
-        </form>
+      <Switch>
+        <Route exact path="/">
+          <div className="page page_airport">
+            <div className="flights">
+              <h1 className="flights-title">SEARCH FLIGHT</h1>
+              <SearchField />
 
-        <div className="flights-btns">
-          <Link to="/departures">
-            <button className="flights-btn flights-btn_departures">
-              <span className="fas fa-plane-departure" />
-              DEPARTURES
-            </button>
-          </Link>
+              <div className="flights-btns">
+                <Link to="/departures">
+                  <button className="flights-btn flights-btn_departures">
+                    <span className="fas fa-plane-departure" />
+                    DEPARTURES
+                  </button>
+                </Link>
 
-          <Link to="/arrivals">
-            <button className="flights-btn flights-btn_arrivals">
-              ARRIVALS
-              <span className="fas fa-plane-arrival" />
-            </button>
-          </Link>
-        </div>
+                <Link to="/arrivals">
+                  <button className="flights-btn flights-btn_arrivals">
+                    ARRIVALS
+                    <span className="fas fa-plane-arrival" />
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Route>
 
-        <Switch>
-          <Route exact path="/departures">
-            <Departure />
-          </Route>
+        <Route exact path="/departures">
+          <Departure />
+        </Route>
 
-          <Route exact path="/arrivals">
-            <Arrivals />
-          </Route>
-        </Switch>
-      </div>
+        <Route exact path="/arrivals">
+          <Arrivals />
+        </Route>
+      </Switch>
     </Router>
   );
 };

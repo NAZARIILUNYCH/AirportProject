@@ -3,15 +3,25 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
-#root {
+.page {
   height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(https://www.itl.cat/pngfile/big/39-399672_high-quality-airport-wallpaper-airport-wallpaper-night.jpg);
+
+  &_airport {
+    background-image: url(https://www.itl.cat/pngfile/big/39-399672_high-quality-airport-wallpaper-airport-wallpaper-night.jpg);
+  }
+
+  &_scoreboard {
+    display: flex;
+    flex-direction: column;
+    background-color: #e9efec;
+  }
 }
 
 i.fas {
@@ -36,7 +46,11 @@ i.fas {
 
   &-title {
     color: #fff;
-    font-family: "Lato", sans-serif;
+    font-weight: 300;
+
+    &_scoreboard {
+      color: black;
+    }
   }
 
   &__search-field {
@@ -44,9 +58,11 @@ i.fas {
     width: 70%;
     height: 70px;
     border: none;
+    font-family: Arial, Helvetica, sans-serif;
 
     &::placeholder {
       font-size: 18px;
+      font-weight: 400;
     }
   }
 
@@ -57,6 +73,7 @@ i.fas {
     color: #fff;
     border: none;
     font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
     border-radius: 0 70px 0 0;
     transition: 0.4s;
 
@@ -75,11 +92,12 @@ i.fas {
   &-btn {
     width: 230px;
     height: 50px;
-    background: #fff;
+    position: relative;
     border: none;
     border-radius: 5px;
     transition: 1.5s;
-    font-weight: 500;
+    font-weight: 700;
+    background-color: #fff;
     color: #53b5e9;
 
     &:hover {
@@ -103,9 +121,57 @@ i.fas {
         border-top-left-radius: 30px;
       }
     }
+
+    &__scoreboard {
+      width: 400px;
+      border-radius: 40px 40px 0 0;
+      color: #fff;
+      background-color: #89d0ed;
+
+      &_selected {
+        z-index: 1;
+        color: #53b5e9;
+        background-color: #fff;
+
+        &:hover {
+          background-color: #fff;
+          color: #53b5e9;
+        }
+      }
+
+      &_departures {
+        width: 520px;
+        position: absolute;
+        left: 324px;
+      }
+
+      &_arrivals {
+        width: 350px;
+        margin-left: 441px;
+      }
+    }
   }
 }
 
 span.fas {
   margin: 10px;
+}
+
+.scoreboard {
+  width: 55%;
+  background-color: #fff;
+  color: #97999b;
+  font-size: 13px;
+  padding-top: 30px;
+
+  &-row {
+    font-size: 15px;
+    text-align: left;
+    color: black;
+    height: 60px;
+
+    &_even {
+      background-color: #e9eff2;
+    }
+  }
 }
