@@ -1,16 +1,27 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ScoreboardList from './ScoreboardList';
-import SearchField from './SearchField';
-import { departuresScoreboard } from './scoreboard';
+import FilterList from './FilterList';
+import { departuresList } from './dataList';
 
-const Departure = () => {
+const Departures = ({ filterText, onChange, filterList, onClick }) => {
   return (
     <div className="page page_scoreboard">
       <div className="flights">
         <h1 className="flights-title flights-title_scoreboard">SEARCH FLIGHT</h1>
-        <SearchField />
+        <form>
+          <input
+            className="flights__search-field"
+            type="text"
+            placeholder="Airline, destination or flight #"
+            value={filterText}
+            onChange={onChange}
+          />
+          <i className="fas fa-search"></i>
+          <button type="button" className="flights__search-btn" onClick={onClick}>
+            SEARCH
+          </button>
+        </form>
       </div>
 
       <div className="flights-btns">
@@ -29,9 +40,9 @@ const Departure = () => {
         </Link>
       </div>
 
-      <ScoreboardList scoreboardList={departuresScoreboard} />
+      <FilterList scoreboardList={filterList(departuresList)} />
     </div>
   );
 };
 
-export default Departure;
+export default Departures;

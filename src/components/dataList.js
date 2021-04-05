@@ -1,5 +1,6 @@
-export const departuresScoreboard = [
+export const departuresList = [
   {
+    id: 'id-1',
     terminal: 'A',
     localTime: '5:40',
     destination: 'Warsaw',
@@ -8,6 +9,7 @@ export const departuresScoreboard = [
     flight: 'LO756',
   },
   {
+    id: 'id-2',
     terminal: 'A',
     localTime: '5:45',
     destination: 'Minsk',
@@ -16,6 +18,7 @@ export const departuresScoreboard = [
     flight: 'B2848',
   },
   {
+    id: 'id-3',
     terminal: 'A',
     localTime: '9:00',
     destination: 'Sharm-el-sheikh',
@@ -25,8 +28,9 @@ export const departuresScoreboard = [
   },
 ];
 
-export const arrivalsScoreboard = [
+export const arrivalsList = [
   {
+    id: 'id-4',
     terminal: 'A',
     localTime: '0:55',
     destination: 'Larnaca',
@@ -35,6 +39,7 @@ export const arrivalsScoreboard = [
     flight: 'W66260',
   },
   {
+    id: 'id-5',
     terminal: 'A',
     localTime: '1:20',
     destination: 'Warsaw',
@@ -43,6 +48,7 @@ export const arrivalsScoreboard = [
     flight: 'LO755',
   },
   {
+    id: 'id-6',
     terminal: 'D',
     localTime: '8:50',
     destination: 'Zaporizhzhia',
@@ -51,6 +57,7 @@ export const arrivalsScoreboard = [
     flight: 'M9201',
   },
   {
+    id: 'id-7',
     terminal: 'A',
     localTime: '13:25',
     destination: 'Dortmund',
