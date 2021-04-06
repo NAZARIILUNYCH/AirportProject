@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FilterList from './FilterList';
-import { arrivalsList } from './dataList';
+import { flightsData } from './dataList';
 
 const Arrivals = ({ filterText, onChange, filterList, onClick }) => {
   return (
@@ -40,7 +40,7 @@ const Arrivals = ({ filterText, onChange, filterList, onClick }) => {
         </Link>
       </div>
 
-      <FilterList scoreboardList={filterList(arrivalsList)} />
+      <FilterList scoreboardList={filterList(flightsData.arrivalsList)} />
     </div>
   );
 };

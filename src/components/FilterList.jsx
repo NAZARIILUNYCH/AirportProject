@@ -1,11 +1,10 @@
 /* eslint-disable no-unused-expressions */
-/* eslint-disable import/no-unresolved */
 import React from 'react';
 
 const FilterList = ({ scoreboardList }) => {
   let className;
 
-  return (
+  return scoreboardList.length !== 0 ? (
     <table className="scoreboard" cellSpacing="0" border="0">
       <tbody>
         <tr align="left">
@@ -35,6 +34,8 @@ const FilterList = ({ scoreboardList }) => {
         })}
       </tbody>
     </table>
+  ) : (
+    <span className="scoreboard no-flights__text">NO FLIGHTS</span>
   );
 };
 

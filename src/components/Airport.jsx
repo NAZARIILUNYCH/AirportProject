@@ -30,7 +30,7 @@ const Airport = () => {
           <div className="page page_airport">
             <div className="flights">
               <h1 className="flights-title">SEARCH FLIGHT</h1>
-              <form>
+              <div>
                 <input
                   className="flights__search-field"
                   type="text"
@@ -44,7 +44,7 @@ const Airport = () => {
                     SEARCH
                   </button>
                 </Link>
-              </form>
+              </div>
 
               <div className="flights-btns">
                 <Link to="/departures">
