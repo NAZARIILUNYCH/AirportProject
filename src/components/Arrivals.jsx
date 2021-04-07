@@ -1,10 +1,13 @@
 /* eslint-disable import/no-unresolved */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import FilterList from './FilterList';
-import { flightsData } from './dataList';
+// import { flightsData } from '../dataList';
+import { getFlightsData } from '../airportGateway';
 
 const Arrivals = ({ filterText, onChange, filterList, onClick }) => {
+  const [arrivalsList, setArrivalsList] = useState([]);
+
   return (
     <div className="page page_scoreboard">
       <div className="flights">
@@ -40,7 +43,7 @@ const Arrivals = ({ filterText, onChange, filterList, onClick }) => {
         </Link>
       </div>
 
-      <FilterList scoreboardList={filterList(flightsData.arrivalsList)} />
+      <FilterList scoreboardList={filterList([])} />
     </div>
   );
 };

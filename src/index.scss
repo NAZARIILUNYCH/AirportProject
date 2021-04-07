@@ -167,7 +167,7 @@ span.fas {
   &-row {
     font-size: 15px;
     text-align: left;
-    color: black;
+    color: #222529;
     height: 60px;
 
     &_even {
@@ -179,5 +179,28 @@ span.fas {
 .no-flights__text {
   padding: 150px 0;
   font-size: 20px;
+  text-align: center;
+}
+
+.airline__logo {
+  display: flex;
+}
+
+.airline__logo-img {
+  width: 45px;
+}
+
+.airline__logo-name {
+  margin: 7px 0 0 5px;
+  font-size: 13px;
+}
+
+.term_a {
+  color: #7dc458;
+  text-align: center;
+}
+
+.term_d {
+  color: #53b5e9;
   text-align: center;
 }

@@ -1,8 +1,10 @@
 /* eslint-disable no-unused-expressions */
 import React from 'react';
+import moment from 'moment';
 
 const FilterList = ({ scoreboardList }) => {
-  let className;
+  let listElemStyle;
+  let termStyle;
 
   return scoreboardList.length !== 0 ? (
     <table className="scoreboard" cellSpacing="0" border="0">
@@ -16,22 +18,26 @@ const FilterList = ({ scoreboardList }) => {
           <th>Flight</th>
         </tr>
 
-        {scoreboardList.map(el => {
-          scoreboardList.indexOf(el) % 2 === 1
-            ? (className += ' scoreboard-row_even')
-            : (className = 'scoreboard-row');
+        {scoreboardList
+          // .sort((a, b) => a.localTime - b.localTime)
+          .slice(12, 20)
+          .map(el => {
+            el.terminal === 'A' ? (termStyle = 'term_a') : (termStyle = 'term_d');
+            scoreboardList.indexOf(el) % 2 === 1
+              ? (listElemStyle += ' scoreboard-row_even')
+              : (listElemStyle = 'scoreboard-row');
 
-          return (
-            <tr key={el.id} className={className}>
-              <th align="center">{el.terminal}</th>
-              <th>{el.localTime}</th>
-              <th>{el.destination}</th>
-              <th>{el.status}</th>
-              <th>{el.airline}</th>
-              <th>{el.flight}</th>
-            </tr>
-          );
-        })}
+            return (
+              <tr key={el.id} className={listElemStyle}>
+                <th className={termStyle}>{el.terminal}</th>
+                <th>{el.localTime}</th>
+                <th>{el.destination}</th>
+                <th>{el.status}</th>
+                <th>{el.airline}</th>
+                <th>{el.flight}</th>
+              </tr>
+            );
+          })}
       </tbody>
     </table>
   ) : (
