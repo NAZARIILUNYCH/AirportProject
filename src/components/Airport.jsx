@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import Departure from './Departures';
+import Departures from './Departures';
 import Arrivals from './Arrivals';
 
 const Airport = () => {
@@ -66,7 +66,7 @@ const Airport = () => {
         </Route>
 
         <Route exact path="/departures">
-          <Departure
+          <Departures
             filterText={onChangeText}
             setFilterText={setFilterText}
             onChange={onChange}
