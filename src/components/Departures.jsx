@@ -5,41 +5,41 @@ import moment from 'moment';
 import FilterList from './FilterList';
 import { getFlightsData } from '../airportGateway';
 
-const Departures = ({ filterText, onChange, filterList, onClick }) => {
+const Departures = ({ filterText, onChange, filterList, onClick, flightList }) => {
   const [departuresList, setDeparturesList] = useState([]);
 
   useEffect(() => {
     getFlightsData().then(res =>
       setDeparturesList(
-        res.body.departure.map(el => {
-          // if (moment(el.timeBoard).format('MM-DD-YYYY') === moment(new Date()).format('MM-DD-YYYY'))
-          return {
-            id: el.ID,
-            terminal: el.term,
-            localTime: `${moment(el.shedule).format('HH:mm')}`,
-            destination: 'test',
-            status:
-              el.status === 'DP'
-                ? `Departed at ${moment(el.depArr).format('HH:mm')}`
-                : `Landed ${`${moment(el.depArr).format('HH:mm')}`}`,
-            airline: (
-              <div className="airline__logo">
-                <img
-                  className="airline__logo-img"
-                  src={el.airline.en.logoSmallName}
-                  alt="airline-logo"
-                />
-                <span className="airline__logo-name">{el.airline.en.name}</span>
-              </div>
-            ),
-            flight: `${el['carrierID.IATA']}${el.fltNo}`,
-          };
-        }),
+        res.body.departure
+          .slice()
+          .filter(flight => new Date(flight.timeDepShedule).getDate() === new Date().getDate())
+          .map(el => {
+            return {
+              id: el.ID,
+              terminal: el.term,
+              localTime: `${moment(el.timeDepShedule).format('HH:mm')}`,
+              destination: el['airportToID.name_en'],
+              status:
+                el.status === 'DP'
+                  ? `Departed at ${moment(el.timeTakeofFact).format('HH:mm')}`
+                  : `Landed ${`${moment(el.timeTakeofFact).format('HH:mm')}`}`,
+              airline: (
+                <div className="airline__logo">
+                  <img
+                    className="airline__logo-img"
+                    src={el.airline.en.logoSmallName}
+                    alt="airline-logo"
+                  />
+                  <span className="airline__logo-name">{el.airline.en.name}</span>
+                </div>
+              ),
+              flight: `${el['carrierID.IATA']}${el.fltNo}`,
+            };
+          }),
       ),
     );
   }, []);
-
-  console.log(departuresList);
 
   return (
     <div className="page page_scoreboard">
