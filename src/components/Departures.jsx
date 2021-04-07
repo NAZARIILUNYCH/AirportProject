@@ -5,7 +5,7 @@ import moment from 'moment';
 import FilterList from './FilterList';
 import { getFlightsData } from '../airportGateway';
 
-const Departures = ({ filterText, onChange, filterList, onClick, flightList }) => {
+const Departures = ({ filterText, onChange, filterList, onClick }) => {
   const [departuresList, setDeparturesList] = useState([]);
 
   useEffect(() => {

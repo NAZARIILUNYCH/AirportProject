@@ -7,7 +7,7 @@ import FilterList from './FilterList';
 import { getFlightsData } from '../airportGateway';
 import { arrivalsSelector } from '../redux/airport.selectors';
 
-const Arrivals = ({ filterText, onChange, filterList, onClick, flightList, getArrivalList }) => {
+const Arrivals = ({ filterText, onChange, filterList, onClick }) => {
   const [arrivalsList, setArrivalsList] = useState([]);
 
   useEffect(() => {
