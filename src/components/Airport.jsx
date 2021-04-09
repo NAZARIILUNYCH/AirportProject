@@ -1,8 +1,9 @@
 /* eslint-disable import/no-unresolved */
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Departures from './Departures';
 import Arrivals from './Arrivals';
+import SearchField from './SearchField';
 
 const Airport = () => {
   const [onChangeText, setOnChangeText] = useState('');
@@ -28,40 +29,15 @@ const Airport = () => {
       <Switch>
         <Route exact path="/">
           <div className="page page_airport">
-            <div className="flights">
-              <h1 className="flights-title">SEARCH FLIGHT</h1>
-              <form>
-                <input
-                  className="flights__search-field"
-                  type="text"
-                  placeholder="Airline, destination or flight #"
-                  value={onChangeText}
-                  onChange={onChange}
-                />
-                <i className="fas fa-search"></i>
-                <Link to="/departures">
-                  <button type="button" className="flights__search-btn" onClick={handleClick}>
-                    SEARCH
-                  </button>
-                </Link>
-              </form>
-
-              <div className="flights-btns">
-                <Link to="/departures">
-                  <button className="flights-btn flights-btn_departures">
-                    <span className="fas fa-plane-departure" />
-                    DEPARTURES
-                  </button>
-                </Link>
-
-                <Link to="/arrivals">
-                  <button className="flights-btn flights-btn_arrivals">
-                    ARRIVALS
-                    <span className="fas fa-plane-arrival" />
-                  </button>
-                </Link>
-              </div>
-            </div>
+            <SearchField
+              onChange={onChange}
+              onChangeText={onChangeText}
+              onClick={handleClick}
+              titleStyle="flights-title"
+              depBtn="flights-btn flights-btn_departures"
+              arvBtn="flights-btn flights-btn_arrivals"
+              path="/departures"
+            />
           </div>
         </Route>
 
@@ -71,7 +47,7 @@ const Airport = () => {
             setFilterText={setFilterText}
             onChange={onChange}
             filterList={filterList}
-            onClick={handleClick}
+            handleClick={handleClick}
           />
         </Route>
 
@@ -81,7 +57,7 @@ const Airport = () => {
             setFilterText={setFilterText}
             onChange={onChange}
             filterList={filterList}
-            onClick={handleClick}
+            handleClick={handleClick}
           />
         </Route>
       </Switch>

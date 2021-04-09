@@ -4,6 +4,7 @@
 
 body {
   font-family: "Lato", sans-serif;
+  background-color: #e9efec;
 }
 
 .page {
@@ -20,7 +21,8 @@ body {
   &_scoreboard {
     display: flex;
     flex-direction: column;
-    background-color: #e9efec;
+    height: 100%;
+    margin-top: 10%;
   }
 }
 
@@ -147,7 +149,7 @@ i.fas {
 
       &_arrivals {
         width: 350px;
-        margin-left: 441px;
+        margin-left: 312px;
       }
     }
   }
@@ -163,6 +165,7 @@ span.fas {
   color: #97999b;
   font-size: 13px;
   padding-top: 30px;
+  margin-bottom: 50px;
 
   &-row {
     font-size: 15px;

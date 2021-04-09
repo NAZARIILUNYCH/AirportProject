@@ -1,19 +1,35 @@
-import { SCOREBOARD_LIST } from './airport.actions';
+import { SET_DEPARTURE_LIST, SET_ARRIVALS_LIST } from './airport.actions';
 
 const initialState = {
-  flights: [],
+  departureList: [],
+  arrivalList: [],
 };
 
-const flightsReducer = (state = initialState, action) => {
+const airportReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SCOREBOARD_LIST:
+    case SET_DEPARTURE_LIST: {
       return {
         ...state,
-        flights: action.payload.flights,
+        departureList: action.payload.departure
+          .slice()
+          .filter(flight => new Date(flight.time).getDate() === new Date().getDate())
+          .sort((a, b) => a.time - b.time),
       };
+    }
+
+    case SET_ARRIVALS_LIST: {
+      return {
+        ...state,
+        arrivalList: action.payload.arrival
+          .slice()
+          .filter(flight => new Date(flight.time).getDate() === new Date().getDate())
+          .sort((a, b) => a.time - b.time),
+      };
+    }
+
     default:
       return state;
   }
 };
 
-export default flightsReducer;
+export default airportReducer;
